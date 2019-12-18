@@ -567,26 +567,7 @@ export default class SortableList extends Component {
   }
 
   _startAutoScroll({direction, shouldScroll, getScrollStep}) {
-    if (!shouldScroll()) {
-      return;
-    }
-
-    const {activeRowKey} = this.state;
-    const {horizontal} = this.props;
-    let counter = 0;
-
-    this._autoScrollInterval = setInterval(() => {
-      if (shouldScroll()) {
-        const movement = {
-          [horizontal ? 'dx' : 'dy']: direction * getScrollStep(counter++),
-        };
-
-        this.scrollBy(movement);
-        this._rows[activeRowKey].moveBy(movement);
-      } else {
-        this._stopAutoScroll();
-      }
-    }, AUTOSCROLL_INTERVAL);
+    return;
   }
 
   _stopAutoScroll() {
